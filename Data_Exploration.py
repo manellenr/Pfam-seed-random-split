@@ -63,6 +63,36 @@ def process_common_sequences(train_df, dev_df, test_df):
 
     return train_df, dev_df_clean, test_df_clean
 
+def analyze_class_distribution(df):
+    print("\n=== Class Distribution Analysis ===")
+    
+    # Calculer la longueur des séquences dans une nouvelle colonne
+    df['seq_length'] = df['sequence'].apply(len)
+    
+    class_counts = df['family_accession'].value_counts()
+    
+    print("Top 5 most frequent classes:")
+    print(class_counts.head(5))
+    
+    top5_classes = class_counts.head(5).index
+    
+    for cls in top5_classes:
+        class_data = df[df['family_accession'] == cls]
+        
+        class_sizes = class_data['seq_length']
+        
+        mean_size = class_sizes.mean()
+        median_size = class_sizes.median()
+        q1 = class_sizes.quantile(0.25)
+        q3 = class_sizes.quantile(0.75)
+        
+        print(f"\nStatistics for class '{cls}':")
+        print(f"Count: {len(class_sizes)}")
+        print(f"Mean: {mean_size:.2f}")
+        print(f"Median: {median_size}")
+        print(f"1st quartile (Q1, 25%): {q1}")
+        print(f"3rd quartile (Q3, 75%): {q3}")
+
 
 train_df = clean_dataset(train_df, "train")
 dev_df = clean_dataset(dev_df, "dev")
@@ -76,3 +106,11 @@ stats_test = analyze_dataset(test_df, 'test')
 
 all_stats_df = pd.DataFrame([stats_train, stats_dev, stats_test])
 print(all_stats_df)
+
+analyze_class_distribution(train_df)
+analyze_class_distribution(dev_df)
+analyze_class_distribution(test_df)
+
+train_df.to_csv("/home/manelle/train_final.csv", index=False)
+dev_df.to_csv("/home/manelle/dev_final.csv", index=False)
+test_df.to_csv("/home/manelle/test_final.csv", index=False)
