@@ -66,7 +66,6 @@ def process_common_sequences(train_df, dev_df, test_df):
 def analyze_class_distribution(df):
     print("\n=== Class Distribution Analysis ===")
     
-    # Calculer la longueur des séquences dans une nouvelle colonne
     df['seq_length'] = df['sequence'].apply(len)
     
     class_counts = df['family_accession'].value_counts()

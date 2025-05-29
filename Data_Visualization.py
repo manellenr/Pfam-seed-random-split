@@ -61,7 +61,6 @@ def analyze_amino_acid_frequencies(df, dataset_name):
     freq_df = pd.DataFrame(amino_acid_counts.items(), columns=['Amino Acid', 'Count'])
     freq_df = freq_df.sort_values(by='Count', ascending=False)
 
-    # Créer le graphe
     fig = px.bar(
         freq_df,
         x='Amino Acid',
@@ -79,9 +78,9 @@ def analyze_amino_acid_frequencies(df, dataset_name):
 
     fig.show()
 
-#analyze_sequence_lengths(train_df, "Train")
-#analyze_sequence_lengths(dev_df, "Dev")
-#analyze_sequence_lengths(test_df, "Test")
+analyze_sequence_lengths(train_df, "Train")
+analyze_sequence_lengths(dev_df, "Dev")
+analyze_sequence_lengths(test_df, "Test")
 
 analyze_amino_acid_frequencies(train_df, "Train")
 analyze_amino_acid_frequencies(dev_df, "Dev")
