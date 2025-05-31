@@ -3,9 +3,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from collections import Counter
 
-train_df = pd.read_csv("/home/manelle/train_final.csv")
-dev_df = pd.read_csv("/home/manelle/dev_final.csv")
-test_df = pd.read_csv("/home/manelle/test_final.csv")
+train_df = pd.read_csv("data/train_final.csv")
+dev_df = pd.read_csv("data/dev_final.csv")
+test_df = pd.read_csv("data/test_final.csv")
 
 def analyze_sequence_lengths(df, dataset_name):
     df['sequence_length'] = df['sequence'].str.len()

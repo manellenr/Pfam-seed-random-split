@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-train_df = pd.read_csv("../train_final.csv")
-dev_df = pd.read_csv("../dev_final.csv")
-test_df = pd.read_csv("../test_final.csv")
+train_df = pd.read_csv("data/train_final.csv")
+dev_df = pd.read_csv("data/dev_final.csv")
+test_df = pd.read_csv("data/test_final.csv")
 
 amino_acids = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
                'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']

@@ -1,8 +1,8 @@
 import pandas as pd
 
-train_df = pd.read_csv("../train.csv")
-dev_df = pd.read_csv("../dev.csv")
-test_df = pd.read_csv("../test.csv")
+train_df = pd.read_csv("data/train.csv")
+dev_df = pd.read_csv("data/dev.csv")
+test_df = pd.read_csv("data/test.csv")
 
 def analyze_dataset(df, name):
     stats = {}
@@ -110,6 +110,6 @@ analyze_class_distribution(train_df)
 analyze_class_distribution(dev_df)
 analyze_class_distribution(test_df)
 
-train_df.to_csv("../train_final.csv", index=False)
-dev_df.to_csv("../dev_final.csv", index=False)
-test_df.to_csv("../test_final.csv", index=False)
+train_df.to_csv("data/train_final.csv", index=False)
+dev_df.to_csv("data//dev_final.csv", index=False)
+test_df.to_csv("data//test_final.csv", index=False)

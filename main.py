@@ -2,8 +2,8 @@ import os
 import shutil
 import pandas as pd
 
-source_base_path = "/home/manelle/.cache/kagglehub/datasets/googleai/pfam-seed-random-split/versions/1/random_split"
-destination_base_path = "/home/manelle/random_split"
+source_base_path = "data/random_split"
+destination_base_path = "data/random_split"
 
 def extract_csv_files():
     for split in ["train", "dev", "test"]:
@@ -30,6 +30,6 @@ train_df = load_split("train")
 dev_df = load_split("dev")
 test_df = load_split("test")
 
-train_df.to_csv("/home/manelle/train.csv", index=False)
-dev_df.to_csv("/home/manelle/dev.csv", index=False)
-test_df.to_csv("/home/manelle/test.csv", index=False)
+train_df.to_csv("data/train.csv", index=False)
+dev_df.to_csv("data/dev.csv", index=False)
+test_df.to_csv("data/test.csv", index=False)
